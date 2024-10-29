@@ -5,24 +5,32 @@ html
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Referral Program</title>
+    <title>Invite Friends</title>
 </head>
 <body>
-    <h1>Referral Program</h1>
-
-    <p>Welcome to our referral program! Invite your friends to join us.</p>
-
-    <p>Your invite link:</p>
-    <input type="text" value="https://petcoinpetcoincommunity.github.io/petcoin" id="inviteLink">
-    <button onclick="copyInviteLink()">Copy Invite Link</button>
+    <button id="generate">Generate Invite Link</button>
+    <button id="copy">Copy Invite Link</button>
+    <button id="claim">Claim Reward Points</button>
+    <p>Invite Code: <span id="invite-code"></span></p>
 
     <script>
-        function copyInviteLink() {
-            var inviteLink = document.getElementById('inviteLink');
-            inviteLink.select();
-            document.execCommand('copy');
-            alert('Invite link copied to clipboard: ' + inviteLink.value);
-        }
+        document.getElementById('generate').addEventListener('click', function() {
+            // Generate invite link logic here (e.g., using a random code)
+            const inviteCode = 'ABCD1234'; 
+            document.getElementById('invite-code').innerText = inviteCode;
+        });
+
+        document.getElementById('copy').addEventListener('click', function() {
+            // Copy invite link logic here (e.g., using clipboard API)
+            const inviteCode = document.getElementById('invite-code').innerText;
+            navigator.clipboard.writeText(inviteCode);
+            alert('Invite link copied to clipboard!');
+        });
+
+        document.getElementById('claim').addEventListener('click', function() {
+            // Claim reward points logic here
+            alert('Reward claimed successfully!');
+        });
     </script>
 </body>
 </html>
