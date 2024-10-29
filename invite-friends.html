@@ -1,63 +1,46 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invite Friends</title>
-    <style>
-        body {
-            background-image: url('background_image.jpg');
-            background-size: cover;
-            text-align: center;
-            padding-top: 50px;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        button {
-            padding: 10px 20px;
-            background: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        input {
-            padding: 8px;
-            margin: 10px 0;
-            width: 100%;
-            border: none;
-            border-radius: 5px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invite Friends</title>
 </head>
-
 <body>
-    <div class="container">
-        <h1>Invite your Friends</h1>
-        <input type="text" id="inviteLink" value="http://https://petcoinpetcoincommunity.github.io/invite/123456" readonly>
-        <button onclick="copyToClipboard()">Copy Invite Link</button>
-    </div>
+<h1>Invite Friends to Join PetCoin Community</h1>
 
-    <script>
-        function copyToClipboard() {
-            var copyText = document.getElementById("inviteLink");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-            document.execCommand("copy");
-            alert("Invite link copied to clipboard: " + copyText.value);
-        }
-    </script>
+<p>Website URL: <a href="https://petcoinpetcoincommunity.github.io">https://petcoinpetcoincommunity.github.io</a></p>
+
+<p>Invite Link Generator:</p>
+<input type="text" id="inviteLink" value="" readonly>
+<button onclick="generateInviteLink()">Generate Invite Link</button>
+
+<p><button onclick="copyInviteLink()">Copy Invite Link</button></p>
+
+<p>Reward Points per Invite: 10</p>
+<p id="rewardPoints">Reward Points: 0</p>
+
+<script>
+function generateInviteLink() {
+    var inviteLink = location.href + "/invite?code=ABC123"; // You can generate a unique code here
+    document.getElementById("inviteLink").value = inviteLink;
+}
+
+function copyInviteLink() {
+    var copyText = document.getElementById("inviteLink");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); 
+    document.execCommand("copy");
+    alert("Invite Link copied: " + copyText.value);
+}
+
+// Example function to add reward points automatically
+var rewardPoints = 500;
+
+function addRewardPoints(500) {
+    rewardPoints += 10; // Reward points for each invite
+    document.getElementById("rewardPoints").innerText = "Reward Points: " + rewardPoints;
+}
+</script>
 </body>
-
 </html>
