@@ -1,22 +1,69 @@
-
-html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invite Friends</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        .invite-container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #ffffff;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .link-container {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Invite Friends</h1>
-    <p>Click the button below to generate your invite link:</p>
-    <button id="generate-link">Generate Invite Link</button>
-    <p id="invite-link"></p>
 
-    <script>
-        document.getElementById('generate-link').addEventListener('click', function() {
-            var userIdentifier = Math.random().toString(36).substring(7); // Generate a random user identifier
-            var inviteLink = window.location.origin + '/invite/' + userIdentifier; // Create the invite link
-            document.getElementById('invite-link').textContent = inviteLink; // Display the invite link
-        });
-    </script>
+<div class="invite-container">
+    <h1>Invite Your Friends!</h1>
+    <p>Earn <strong>500 Pet Coins</strong> per successful invite!</p>
+    <button onclick="generateInviteLink()">Generate Invite Link</button>
+
+    <div class="link-container" id="linkContainer">
+        <!-- Invite link will be displayed here -->
+    </div>
+</div>
+
+<script>
+    // Function to generate invite link
+    function generateInviteLink() {
+        // Mock unique user ID - in a real app, this would be from user account data
+        const userId = 'user_' + Math.floor(Math.random() * 10000);
+        const baseUrl = window.location.origin; // Use current domain
+        const inviteLink = ${baseUrl}/invite?ref=${userId};
+        
+        // Display the link
+        const linkContainer = document.getElementById('linkContainer');
+        linkContainer.innerHTML = <p>Your invite link:</p><a href="${inviteLink}" target="_blank">${inviteLink}</a>;
+    }
+</script>
+
 </body>
 </html>
