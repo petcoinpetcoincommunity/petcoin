@@ -1,58 +1,22 @@
+
+html
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invite Friends & Claim Reward</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="material/css/styles.css">
-    <link rel="stylesheet" href="material/css/st.css">
+    <title>Invite Friends</title>
 </head>
 <body>
-  <h1>Invite Friends List</h1>
-    <ul>
-        <li>Friend 1</li>
-        <li>Friend 2</li>
-        <li>Friend 3</li>
-    </ul>
-    
-    <button onclick="claimReward()">Claim Reward</button>
-    <p>Invite your friends and earn rewards!</p>
+    <h1>Invite Friends</h1>
+    <p>Click the button below to generate your invite link:</p>
+    <button id="generate-link">Generate Invite Link</button>
+    <p id="invite-link"></p>
 
-    <h2>Rewards:</h2>
-    <p>Earn points for each friend who signs up using your link. Get exciting rewards when you reach milestones!</p>```
-
-    <div class="frens-invite">
-        <div class="frens-invite-button">
-            <input type="text" value="https://t.me/Petcommunity_bot/invite123" id="link" readonly>
-            <button id="copyButton">Copy Link</button>
-        </div>
-    </div>
-
-    <nav class="bottom-nav">
-        <a href="home.html" class="nav-item">
-            <i class="fas fa-home"></i>
-            <span>HOME</span>
-        </a>
-        <a href="leaderboard.html" class="nav-item">
-            <i class="fas fa-trophy"></i>
-            <span>LEADERBOARD</span>
-        </a>
-        <a href="invite-friends.html" class="nav-item">
-            <i class="fas fa-user-friends"></i>
-            <span>FRIENDS</span>
-        </a>
-        <a href="task.html" class="nav-item">
-            <i class="fas fa-tasks"></i>
-            <span>TASKS</span>
-        </a>
-        <a href="balance.html" class="nav-item">
-            <i class="fas fa-wallet"></i>
-            <span>BALANCE</span>
-        </a>
-    </nav>
-    <script src="material/js/cojs.js"></script>
-    <script src="material/js/scripts.js"></script>
+    <script>
+        document.getElementById('generate-link').addEventListener('click', function() {
+            var userIdentifier = Math.random().toString(36).substring(7); // Generate a random user identifier
+            var inviteLink = window.location.origin + '/invite/' + userIdentifier; // Create the invite link
+            document.getElementById('invite-link').textContent = inviteLink; // Display the invite link
+        });
+    </script>
 </body>
 </html>
