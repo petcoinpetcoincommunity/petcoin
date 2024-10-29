@@ -1,43 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Join us at PetCoin Community!</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
-      text-align: center;
-    }
-    .invite-box {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      color: #333;
-    }
-    p {
-      color: #555;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    a {
-      color: #007bff;
-      text-decoration: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invite Friends & Claim Reward</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="material/css/styles.css">
+    <link rel="stylesheet" href="material/css/st.css">
 </head>
 <body>
-  <div class="invite-box">
-    <h1>Join us at PetCoin Community!</h1>
-    <p>Discover the world of pets and cryptocurrency at the PetCoin Community. Click below to visit our website and get started!</p>
-    <a href="https://petcoinpetcoincommunity.github.io/petcoin/index.html">Visit Website</a>
-    <p>Don't keep this hidden gem to yourself! Invite your friends to join in the fun!</p>
-    <p>Let's create a thriving community together!</p>
-  </div>
+  <h1>Invite Friends List</h1>
+    <ul>
+        <li>Friend 1</li>
+        <li>Friend 2</li>
+        <li>Friend 3</li>
+    </ul>
+    
+    <button onclick="claimReward()">Claim Reward</button>
+    <p>Invite your friends and earn rewards!</p>
+
+    <h2>Rewards:</h2>
+    <p>Earn points for each friend who signs up using your link. Get exciting rewards when you reach milestones!</p>```
+
+    <div class="frens-invite">
+        <div class="frens-invite-button">
+            <input type="text" value="https://t.me/Petcommunity_bot/invite123" id="link" readonly>
+            <button id="copyButton">Copy Link</button>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>HOME</span>
+        </a>
+        <a href="leaderboard.html" class="nav-item">
+            <i class="fas fa-trophy"></i>
+            <span>LEADERBOARD</span>
+        </a>
+        <a href="invite-friends.html" class="nav-item">
+            <i class="fas fa-user-friends"></i>
+            <span>FRIENDS</span>
+        </a>
+        <a href="task.html" class="nav-item">
+            <i class="fas fa-tasks"></i>
+            <span>TASKS</span>
+        </a>
+        <a href="balance.html" class="nav-item">
+            <i class="fas fa-wallet"></i>
+            <span>BALANCE</span>
+        </a>
+    </nav>
+    <script src="material/js/cojs.js"></script>
+    <script src="material/js/scripts.js"></script>
 </body>
 </html>
-```
