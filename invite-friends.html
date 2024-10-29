@@ -1,36 +1,64 @@
+html
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invite Friends</title>
+    <style>
+        body {
+            background-image: url('background_image.jpg');
+            background-size: cover;
+            text-align: center;
+            padding-top: 50px;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 8px;
+            margin: 10px 0;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
+
 <body>
-    <p>Share this invite link: <span id="inviteLink"></span></p>
-    <button onclick="copyInviteLink()">Copy Invite Link</button>
-    <p>Successfully invited friends will earn you 50 reward points.</p>
-    <p id="rewardPoints">Your current reward points: 100</p>
+    <div class="container">
+        <h1>Invite your Friends</h1>
+        <input type="text" id="inviteLink" value="http://www.example.com/invite/123456" readonly>
+        <button onclick="copyToClipboard()">Copy Invite Link</button>
+    </div>
 
     <script>
-        let rewardPoints = 100;
-
-        function generateInviteLink() {
-            // Code to generate invite link
-            document.getElementById("inviteLink").innerText = "yourinvite.link/example123";
-        }
-
-        function copyInviteLink() {
-            // Code to copy invite link
-            var inviteLink = document.getElementById("inviteLink");
-            inviteLink.select();
+        function copyToClipboard() {
+            var copyText = document.getElementById("inviteLink");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
             document.execCommand("copy");
-            alert("Invite link copied!");
+            alert("Invite link copied to clipboard: " + copyText.value);
         }
-
-        function updateRewardPoints() {
-            rewardPoints += 50;
-            document.getElementById("rewardPoints").innerText = "Your current reward points: " + rewardPoints;
-        }
-
-        generateInviteLink();
     </script>
 </body>
+
 </html>
