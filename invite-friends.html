@@ -1,46 +1,43 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invite Friends</title>
+  <title>Join us at PetCoin Community!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      text-align: center;
+    }
+    .invite-box {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      color: #555;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-<h1>Invite Friends to Join PetCoin Community</h1>
-
-<p>Website URL: <a href="https://petcoinpetcoincommunity.github.io">https://petcoinpetcoincommunity.github.io</a></p>
-
-<p>Invite Link Generator:</p>
-<input type="text" id="inviteLink" value="" readonly>
-<button onclick="generateInviteLink()">Generate Invite Link</button>
-
-<p><button onclick="copyInviteLink()">Copy Invite Link</button></p>
-
-<p>Reward Points per Invite: 10</p>
-<p id="rewardPoints">Reward Points: 0</p>
-
-<script>
-function generateInviteLink() {
-    var inviteLink = location.href + "/invite?code=ABC123"; // You can generate a unique code here
-    document.getElementById("inviteLink").value = inviteLink;
-}
-
-function copyInviteLink() {
-    var copyText = document.getElementById("inviteLink");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); 
-    document.execCommand("copy");
-    alert("Invite Link copied: " + copyText.value);
-}
-
-// Example function to add reward points automatically
-var rewardPoints = 500;
-
-function addRewardPoints(500) {
-    rewardPoints += 10; // Reward points for each invite
-    document.getElementById("rewardPoints").innerText = "Reward Points: " + rewardPoints;
-}
-</script>
+  <div class="invite-box">
+    <h1>Join us at PetCoin Community!</h1>
+    <p>Discover the world of pets and cryptocurrency at the PetCoin Community. Click below to visit our website and get started!</p>
+    <a href="https://petcoinpetcoincommunity.github.io/petcoin/index.html">Visit Website</a>
+    <p>Don't keep this hidden gem to yourself! Invite your friends to join in the fun!</p>
+    <p>Let's create a thriving community together!</p>
+  </div>
 </body>
 </html>
+```
