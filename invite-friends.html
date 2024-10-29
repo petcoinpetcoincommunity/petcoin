@@ -1,62 +1,18 @@
 html
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Referral Program</title>
-    <style>
-        .btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .input-group {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invite and Referral Link Page</title>
 </head>
-
 <body>
-    <h2>Referral Program</h2>
-    <div class="input-group">
-        <input type="text" id="referral-link" value="http://example.com/referral-link" readonly>
-        <button onclick="copyReferralLink()" class="btn">Copy Link</button>
-    </div>
-
-    <h3>Your Invite Link:</h3>
-    <div class="input-group">
-        <input type="text" id="user-invite-link" readonly>
-        <button onclick="generateUserInviteLink()" class="btn">Generate</button>
-    </div>
-
-    <button onclick="claimReward()" class="btn">Claim Reward</button>
-
-    <script>
-        function copyReferralLink() {
-            var referralLinkInput = document.getElementById('referral-link');
-            referralLinkInput.select();
-            document.execCommand('copy');
-            alert('Referral link copied to clipboard');
-        }
-
-        function generateUserInviteLink() {
-            // You can implement code here to generate a unique invite link for each user
-            var userInviteLink = 'http://example.com/user-invite-link';
-            document.getElementById('user-invite-link').value = userInviteLink;
-        }
-
-        function claimReward() {
-            // You can implement code here to handle reward claiming logic
-            alert('Reward claimed successfully');
-        }
-    </script>
+    <h1>Welcome to our Invite and Referral Link Page!</h1>
+    
+    <p>Share your unique referral link with friends and earn rewards!</p>
+    
+    <p>Your unique referral link: <a href="#">https://yourreferrallink.com</a></p>
+    
+    <p>Invite your friends by sharing this link and encourage them to sign up!</p>
 </body>
-
 </html>
