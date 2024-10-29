@@ -1,26 +1,44 @@
 html
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invite Friends</title>
+    <title>Invite and Earn Coin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Invite Friends</h1>
-    <p>Every user has their own unique invite link. When a user invites a friend using their link, they get 500 coins.</p>
-    
-    <h2>Invite Link</h2>
-    <p>Your Unique Invite Link: <input type="text" value="your_invite_link_here" readonly></p>
-    <p>Total Coins: 500</p>
-    
-    <h2>Invite Friends List</h2>
-    <ul>
-        <li>Friend 1</li>
-        <li>Friend 2</li>
-        <li>Friend 3</li>
-        <li>Friend 4</li>
-        <li>Friend 5 (Extra 10000 coins!)</li>
-    </ul>
+    <div class="container">
+        <h1>Invite and Earn Coin</h1>
+        <p>Per successful invite, earn 500 coins</p>
+        <button>Generate Invite Link</button>
+        <p>Total coins earned: <span id="coinCount">0</span></p>
+    </div>
 </body>
 </html>
