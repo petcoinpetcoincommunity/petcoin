@@ -1,16 +1,62 @@
 html
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>pet coin Bot Friends</title>
+    <title>Referral Program</title>
+    <style>
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Welcome to the Petcoin Bot Friends Page!</h1>
-    <p>Meet our cute bot friends with Pet!</p>
-    <ul>
-        <li>Pets Bot</li>
-        <li>BotPets</li>
-        <li>Petlicious Bot</li>
-    </ul>
+    <h2>Referral Program</h2>
+    <div class="input-group">
+        <input type="text" id="referral-link" value="http://example.com/referral-link" readonly>
+        <button onclick="copyReferralLink()" class="btn">Copy Link</button>
+    </div>
+
+    <h3>Your Invite Link:</h3>
+    <div class="input-group">
+        <input type="text" id="user-invite-link" readonly>
+        <button onclick="generateUserInviteLink()" class="btn">Generate</button>
+    </div>
+
+    <button onclick="claimReward()" class="btn">Claim Reward</button>
+
+    <script>
+        function copyReferralLink() {
+            var referralLinkInput = document.getElementById('referral-link');
+            referralLinkInput.select();
+            document.execCommand('copy');
+            alert('Referral link copied to clipboard');
+        }
+
+        function generateUserInviteLink() {
+            // You can implement code here to generate a unique invite link for each user
+            var userInviteLink = 'http://example.com/user-invite-link';
+            document.getElementById('user-invite-link').value = userInviteLink;
+        }
+
+        function claimReward() {
+            // You can implement code here to handle reward claiming logic
+            alert('Reward claimed successfully');
+        }
+    </script>
 </body>
+
 </html>
