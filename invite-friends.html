@@ -1,69 +1,26 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invite Friends</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f2f5;
-        }
-        .invite-container {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background: #ffffff;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            background-color: #4CAF50;
-            color: #ffffff;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .link-container {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-    </style>
 </head>
 <body>
-
-<div class="invite-container">
-    <h1>Invite Your Friends!</h1>
-    <p>Earn <strong>500 Pet Coins</strong> per successful invite!</p>
-    <button onclick="generateInviteLink()">Generate Invite Link</button>
-
-    <div class="link-container" id="linkContainer">
-        <!-- Invite link will be displayed here -->
-    </div>
-</div>
-
-<script>
-    // Function to generate invite link
-    function generateInviteLink() {
-        // Mock unique user ID - in a real app, this would be from user account data
-        const userId = 'user_' + Math.floor(Math.random() * 10000);
-        const baseUrl = window.location.origin; // Use current domain
-        const inviteLink = ${baseUrl}/invite?ref=${userId};
-        
-        // Display the link
-        const linkContainer = document.getElementById('linkContainer');
-        linkContainer.innerHTML = <p>Your invite link:</p><a href="${inviteLink}" target="_blank">${inviteLink}</a>;
-    }
-</script>
-
+    <h1>Invite Friends</h1>
+    <p>Every user has their own unique invite link. When a user invites a friend using their link, they get 500 coins.</p>
+    
+    <h2>Invite Link</h2>
+    <p>Your Unique Invite Link: <input type="text" value="your_invite_link_here" readonly></p>
+    <p>Total Coins: 500</p>
+    
+    <h2>Invite Friends List</h2>
+    <ul>
+        <li>Friend 1</li>
+        <li>Friend 2</li>
+        <li>Friend 3</li>
+        <li>Friend 4</li>
+        <li>Friend 5 (Extra 10000 coins!)</li>
+    </ul>
 </body>
 </html>
