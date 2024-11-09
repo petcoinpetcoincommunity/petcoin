@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task to Earn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Task to Earn</h1>
+    <p>Complete tasks to earn rewards!</p>
+    
+    <ul id="taskList">
+        <li><input type="checkbox" onclick="toggleTask(this)"> Task 1: Sign up for our newsletter</li>
+        <li><input type="checkbox" onclick="toggleTask(this)"> Task 2: Share on social media</li>
+        <li><input type="checkbox" onclick="toggleTask(this)"> Task 3: Refer a friend</li>
+        <li><input type="checkbox" onclick="toggleTask(this)"> Task 4: Leave a review</li>
+    </ul>
+
+    <script>
+        function toggleTask(checkbox) {
+            const listItem = checkbox.parentElement;
+            if (checkbox.checked) {
+                listItem.classList.add('completed');
+            } else {
+                listItem.classList.remove('completed');
+            }
+        }
+    </script>
+    
+</body>
+</html> 
