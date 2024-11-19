@@ -1,0 +1,130 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play and Earn Ludo Game</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <h1>Welcome to Play and Earn Ludo Game! </h1>
+    
+    <div id="game-board">
+        <!-- Your game board design goes here -->
+    </div>
+
+    <button id="roll-dice-btn">Roll Dice</button>
+    <p id="dice-result">Dice result: </p>
+
+    <h2>Your earnings: $<span id="earnings">0</span></h2>
+
+    <script>
+        // class LudoGame {
+    constructor() {
+        this.players = [
+            { color: 'red', tokens: [], startPosition: 0 },
+            { color: 'blue', tokens: [], startPosition: 13 },
+            { color: 'green', tokens: [], startPosition: 26 },
+            { color: 'yellow', tokens: [], startPosition: 39 }
+        ];
+        this.board = new Array(52).fill(null);
+        this.initializeTokens();
+    }
+
+    initializeTokens() {
+        this.players.forEach(player => {
+            for (let i = 0; i < 4; i++) {
+                player.tokens.push({
+                    id: `${player.color}-${i + 1}`,
+                    position: null,
+                    home: true
+                });
+            }
+        });
+    }
+
+    rollDice() {
+        return Math.floor(Math.random() * 6) + 1;
+    }
+
+    canMoveToken(player, token, diceRoll) {
+        if (token.home && diceRoll === 6) return true;
+        if (token.home) return false;
+        return true;
+    }
+
+    moveToken(player, token, diceRoll) {
+        if (token.home && diceRoll === 6) {
+            token.home = false;
+            token.position = player.startPosition;
+            this.board[player.startPosition] = token;
+        } else if (!token.home) {
+            const currentIndex = this.board.indexOf(token);
+            const newPosition = (currentIndex + diceRoll) % 52;
+            
+            // Check for capturing opponent tokens
+            if (this.board[newPosition] && this.board[newPosition].id.split('-')[0] !== player.color) {
+                const capturedToken = this.board[newPosition];
+                capturedToken.home = true;
+                capturedToken.position = null;
+            }
+
+            this.board[currentIndex] = null;
+            this.board[newPosition] = token;
+            token.position = newPosition;
+        }
+    }
+
+    checkWinner() {
+        // Logic to check if a player has won (all tokens reached home)
+        return this.players.find(player => 
+            player.tokens.every(token => token.position >= 48 && token.position < 52)
+        );
+    }
+
+    playTurn(playerIndex) {
+        const player = this.players[playerIndex];
+        const diceRoll = this.rollDice();
+        
+        // Strategy for moving tokens (can be improved)
+        const movableTokens = player.tokens.filter(token => 
+            this.canMoveToken(player, token, diceRoll)
+        );
+
+        if (movableTokens.length > 0) {
+            const tokenToMove = movableTokens[Math.floor(Math.random() * movableTokens.length)];
+            this.moveToken(player, tokenToMove, diceRoll);
+        }
+
+        return { player, diceRoll, movableTokens };
+    }
+}
+
+// Example game usage
+const game = new LudoGame();
+let currentPlayerIndex = 0;
+
+function playGame() {
+    const turnResult = game.playTurn(currentPlayerIndex);
+    console.log(`Player ${game.players[currentPlayerIndex].color} rolled ${turnResult.diceRoll}`);
+    
+    const winner = game.checkWinner();
+    if (winner) {
+        console.log(`${winner.color} player wins!`);
+        return;
+    }
+
+    currentPlayerIndex = (currentPlayerIndex + 1) % 4;
+}
+
+// Simulate game play
+for (let i = 0; i < 100; i++) {
+    playGame();
+}
+    </script>
+</body>
+</html>
